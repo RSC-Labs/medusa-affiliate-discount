@@ -118,8 +118,9 @@ const plugins = [
 As this is just the beginning, here are current limitations:
 
 1. `Earnings` is simple calculation, but to keep it simple, we need to assume that there is only one currency. In case of international buyings, calculation of `earnings` won't be trivial. One currency is guaranteed by having a discount related to one region which can have only one currency.
-2. Admin UI widget is very simple - it might not cover all corner case in terms of validation of fields. One of the reason is that we still do not have experience in HTML/CSS. The other reason is that we are using basic stuff from `@medusajs/ui`, which is heavily limited. If `@medusajs/ui` will be improved, then improvements could be ported here.
-3. The only commission type which is now supported is "percentage". If there will be interest about this plugin, then it might be improved.
+2. For simplicity - affiliate discount cannot be edited. It means that if you want to reset earnings (e.g. when you pay your customer), then you need to delete affiliate discount and create new one. For some scenarios it can be even a better choice, for instance when your discount expired and you would like to create new one.
+3. Admin UI widget is very simple - it might not cover all corner case in terms of validation of fields. One of the reason is that we still do not have experience in HTML/CSS. The other reason is that we are using basic stuff from `@medusajs/ui`, which is heavily limited. If `@medusajs/ui` will be improved, then improvements could be ported here.
+4. The only commission type which is now supported is "percentage". If there will be interest about this plugin, then it might be improved.
 
 ## TODO
 

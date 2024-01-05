@@ -19,7 +19,9 @@
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
     "build": "cross-env npm run clean && tsc -p tsconfig.json",
-    "prepare": "cross-env NODE_ENV=production npm run build"
+    "build:server": "cross-env npm run clean && tsc -p tsconfig.json",
+    "build:admin": "cross-env medusa-admin build",
+    "prepare": "cross-env NODE_ENV=production npm run build:server && medusa-admin bundle"
   },
   "dependencies": {
     "@medusajs/admin": "^7.1.9",
