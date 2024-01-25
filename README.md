@@ -16,14 +16,14 @@ Affiliate marketing contains different activities. One of them is affiliation pr
 
 ## Getting Started
 
-1. Install the package with `yarn add medusa-affiliate-discount` or `npm i medusa-affiliate-discount`.
+1. Install the package with `yarn add @rsc-labs/medusa-affiliate-discount` or `npm i @rsc-labs/medusa-affiliate-discount`.
 2. In `medusa-config.js`, add the plugin to the `plugins` array.
 
 ```js
 const plugins = [
   // ... other plugins
   {
-    resolve: `medusa-affiliate-discount`,
+    resolve: `@rsc-labs/medusa-affiliate-discount`,
     options: {
       
     }
@@ -35,7 +35,7 @@ const plugins = [
 const plugins = [
   // ... other plugins
   {
-    resolve: `medusa-affiliate-discount`,
+    resolve: `@rsc-labs/medusa-affiliate-discount`,
     options: {
       enableUI: true
     }
