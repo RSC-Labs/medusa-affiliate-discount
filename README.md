@@ -1,8 +1,9 @@
 <p align="center">
   <picture>
-    <img alt="Affiliate discount logo" height="100px" src="./docs/affiliate-discount-logo.png">
+    <img alt="Medusa store-analytics logo" src="https://raw.githubusercontent.com/RSC-Labs/medusa-affiliate-discount/main/docs/medusa-plugin-affiliate-discount.png">
   </picture>
 </p>
+
 <h1 align="center">
   Medusa Affiliate Discount
 </h1>
