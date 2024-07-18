@@ -26,7 +26,7 @@
   "dependencies": {
     "@medusajs/admin": "^7.1.9",
     "@medusajs/ui": "2.4.3",
-    "@medusajs/icons": "1.2.1",
+    "@medusajs/icons": "1.2.2",
     "@tanstack/react-query": "4.22",
     "medusa-interfaces": "^1.3.7",
     "medusa-react": "^9.0.12",
