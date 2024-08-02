@@ -11,7 +11,7 @@
  */
 
 import type { WidgetConfig, CustomerDetailsWidgetProps } from "@medusajs/admin"
-import { Container, useToggleState, Table, Button, Heading, DropdownMenu, IconButton, clx, usePrompt, Select, FocusModal, Input, useToast, Toaster} from "@medusajs/ui"
+import { Container, useToggleState, Table, Button, Heading, DropdownMenu, IconButton, clx, usePrompt, Select, FocusModal, Input, toast, Toaster} from "@medusajs/ui"
 import { useForm, Controller, Control, UseFormRegister } from "react-hook-form"
 
 import {
@@ -57,7 +57,6 @@ const getErrorMessage = (error: any) => {
 }
 
 const AffilateDiscountsTableActions = ({ affiliateDiscountId }: { affiliateDiscountId: string }) => {
-  const { toast } = useToast()
 
   const prompt = usePrompt();
   const { mutateAsync } = useAdminCustomDelete<{}>
@@ -81,40 +80,32 @@ const AffilateDiscountsTableActions = ({ affiliateDiscountId }: { affiliateDisco
       await mutateAsync(undefined, {
         onSuccess: ({ response }) => {
           if (response.status == 200) {
-            toast({
-              title: "Error",
+            toast.success('Affiliate discount', {
               description: "Your affiliate discount has been deleted",
-              variant: "success",
-              duration: 5000,
-            })
+              duration: 5000
+            });
           }
 
           if (response.status != 200) {
-            toast({
-              title: "Error",
+            toast.error('Affiliate discount', {
               description: "Failed to delete affiliate discount",
-              variant: "error",
-              duration: 5000,
-            })
+              duration: 5000
+            });
           }
         },
         onError( error ) {
           const realError = getErrorMessage(error);
-          toast({
-            title: "Failed",
+          toast.error('Affiliate discount', {
             description: realError,
-            variant: "error",
-            duration: 5000,
-          })
+            duration: 5000
+          });
         },
       })
     } catch (e) {
-      toast({
-        title: "Error",
+      toast.error('Affiliate discount', {
         description: "Failed to delete affiliate discount",
-        variant: "error",
-        duration: 5000,
-      })
+        duration: 5000
+      });
     }
   }
 
@@ -347,7 +338,6 @@ type AdminAffiliateDiscountPostReq = {
 }
 
 const CreateAffDiscForm = ({ customerId } : { customerId: string }) => {
-  const { toast } = useToast();
 
   const {
     state: modalState,
@@ -375,12 +365,10 @@ const CreateAffDiscForm = ({ customerId } : { customerId: string }) => {
 
   const onSubmit = (newDiscount: NewAffiliateDiscountFormType) => {
     if (!newDiscount.commission || !newDiscount.customerId || !newDiscount.discountId || !validateCommission(newDiscount.commission)) {
-      toast({
-        title: "Failed",
+      toast.error('Affiliate discount', {
         description: "Values provided in fields are not correct",
-        variant: "error",
-        duration: 5000,
-      })
+        duration: 5000
+      });
       return;
     }
     return mutate(
@@ -391,32 +379,26 @@ const CreateAffDiscForm = ({ customerId } : { customerId: string }) => {
       }, {
       onSuccess: ( { response } ) => {
         if (response.status == 201) {
-          toast({
-            title: "Success",
+          toast.success('Affiliate discount', {
             description: "Your affiliate discount has been published",
-            variant: "success",
-            duration: 5000,
-          })
+            duration: 5000
+          });
           closeModal()
         }
 
         if (response.status != 201) {
-          toast({
-            title: "Failed",
+          toast.error('Affiliate discount', {
             description: "Something went wrong. Please check values in fields.",
-            variant: "error",
-            duration: 5000,
-          })
+            duration: 5000
+          });
         }
       },
       onError( error ) {
         const realError = getErrorMessage(error);
-        toast({
-          title: "Failed",
+        toast.error('Affiliate discount', {
           description: realError,
-          variant: "error",
-          duration: 5000,
-        })
+          duration: 5000
+        });
       },
     })
   }
