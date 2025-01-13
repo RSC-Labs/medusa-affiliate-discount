@@ -27,7 +27,7 @@
     "@medusajs/admin": "^7.1.9",
     "@medusajs/ui": "^3.0.1",
     "@medusajs/icons": "1.2.2",
-    "@tanstack/react-query": "4.22",
+    "@tanstack/react-query": "5.64",
     "medusa-interfaces": "^1.3.7",
     "medusa-react": "^9.0.12",
     "typeorm": "^0.3.16",
